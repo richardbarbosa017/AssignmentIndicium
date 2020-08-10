@@ -32,3 +32,5 @@ Os outputs foram gerados a partir das tabelas utilizadas no PowerBi.
 
 Houve a produção de uma simples dashboard a fim de melhor visualizar os dados requisitados (output), para visualizar, basta instalar o PowerBi Desktop v2.83 e executar o arquivo
 "ProjetoIndicium.pbix".
+
+![alt text](https://github.com/richardbarbosa017/AssignmentIndicium/blob/master/Dashboard.PNG)
