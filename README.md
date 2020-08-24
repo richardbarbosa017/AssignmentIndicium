@@ -14,7 +14,8 @@ glob
 csv
 Toda a parte de conexão com o servidor ficou com a biblioteca Psycopg2, pandas com a parte de abertura e leitura do arquivo tsv, d6tstack com a parte de escrever o dataframe e esta necessita de uma uri de configuração o padrão para setar é "cfg_uri_psql = 'postgresql+psycopg2://user:password@localhost/database' ".
 As tarefas foram realizadas utilizando codigo SQL disponibilizadas de maneira separas no arquivo Transform.sql.
-A execução do arquivo main.py gera os outputs pedidos em forma de csv.
+A execução do arquivo main.py gera os outputs pedidos em forma de csv (out 1,out 2 e out 3).
+O out 1 refere-se ao valor vendido por contato, out 2 ao valor vendido por mês e out 3 a porcentagem vendida por setor.
 
 ## DESENVOLVIMENTO POWERBI
 
