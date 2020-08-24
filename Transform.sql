@@ -9,3 +9,9 @@ SELECT cast(extract(month from (TO_DATE("dealsDateCreated", 'MM/DD/YYYY'))) as i
 from deals
 group by "Month", monthid
 order by monthid
+/*Porcentagem por setor*/
+select ca."sector",round(sum ("dealsPrice")/(select sum("dealsPrice") from deals),3) as porcentagem
+from deals join (select co."companiesId", "sector"
+				 from companies as co join sectors as se on co."sectorKey"=se."sectorKey") as ca on deals."companiesId"=ca."companiesId"
+group by ca."sector"
+order by porcentagem desc

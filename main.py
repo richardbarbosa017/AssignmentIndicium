@@ -46,6 +46,20 @@ try:
         csv_writer.writerow([i[0] for i in cursor.description])
         csv_writer.writerows(result)
 
+    #Task 3
+    cursor.execute('''select ca."sector",round(sum ("dealsPrice")/(select sum("dealsPrice") from deals),3) as porcentagem
+                        from deals join (select co."companiesId", "sector"
+                                        from companies as co join sectors as se on co."sectorKey"=se."sectorKey") as ca on deals."companiesId"=ca."companiesId"
+                        group by ca."sector"
+                        order by porcentagem desc
+    ''')
+    result = cursor.fetchall()
+    #escreve resultados em arquivo csv
+    with open("out3.csv", "w", newline='') as csv_file: 
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerow([i[0] for i in cursor.description])
+        csv_writer.writerows(result)
+
 
 except (Exception, psycopg2.Error) as error:
     print("Problema ao conectar com o Banco de dados", error)
