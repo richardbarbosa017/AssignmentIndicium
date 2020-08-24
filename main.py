@@ -32,7 +32,6 @@ try:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow([i[0] for i in cursor.description])
         csv_writer.writerows(result)
-
     #Task 2
     cursor.execute('''SELECT cast(extract(month from (TO_DATE("dealsDateCreated", 'MM/DD/YYYY'))) as integer) as monthid , TO_CHAR(TO_DATE("dealsDateCreated", 'MM/DD/YYYY'), 'Month') AS "Month",sum("dealsPrice")
                         from deals
@@ -45,7 +44,6 @@ try:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow([i[0] for i in cursor.description])
         csv_writer.writerows(result)
-
     #Task 3
     cursor.execute('''select ca."sector",round(sum ("dealsPrice")/(select sum("dealsPrice") from deals),3) as porcentagem
                         from deals join (select co."companiesId", "sector"
@@ -59,8 +57,6 @@ try:
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow([i[0] for i in cursor.description])
         csv_writer.writerows(result)
-
-
 except (Exception, psycopg2.Error) as error:
     print("Problema ao conectar com o Banco de dados", error)
 finally:
