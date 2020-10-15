@@ -1,20 +1,31 @@
 ## INTRODUÇÃO
 
 Optei por realizar o projeto com a linguagem de programação Python e o PostgreSQL, durante a execução criei um banco de dados em servidor local por meio do PgAdmin4 (localhost, port:5432), a partir da criação realizei um codigo em python para importação dos arquivos ".tsv" para o servidor e, posteriormente, execução de scripts SQL por meio do "execute" no python (para selecionar os dados segundo as tarefas requisitadas).
+
 Foi utilizado a ferramenta PowerBi para executar todas os estágios da ETL de maneira alternativa ao desenvolvido em Python e SQL, escolhi tal ferramenta devido a familiaridade e facilidade do mesmo.
 
 ## DESENVOLVIMENTO PYTHON/SQL
 
 Inicialmente é necessário a criação de um banco de dados em um servidor local, utilizei o PostgreSQL para tal tarefa, é necessário iniciar o PgAdmin4, setar o usuário e senha e está pronto o servidor de preferencia setar igual ao meu para não haver problemas: "usuario:postgres, senha:postgres e database: postgres" (guarde o nome de usuario, senha e nome da database criada/utilizada no servidor).
+
 Como salientado na introdução a importação de dados e conexão com o banco de dados foi realizada via python, algumas bibliotecas necessitam ser instaladas para a execução do programa:
+
 psycopg2
+
 pandas as pd
+
 d6tstack
+
 glob
+
 csv
+
 Toda a parte de conexão com o servidor ficou com a biblioteca Psycopg2, pandas com a parte de abertura e leitura do arquivo tsv, d6tstack com a parte de escrever o dataframe e esta necessita de uma uri de configuração o padrão para setar é "cfg_uri_psql = 'postgresql+psycopg2://user:password@localhost/database' ".
+
 As tarefas foram realizadas utilizando codigo SQL disponibilizadas de maneira separas no arquivo Transform.sql.
+
 A execução do arquivo main.py gera os outputs pedidos em forma de csv (out 1,out 2 e out 3).
+
 O out 1 refere-se ao valor vendido por contato, out 2 ao valor vendido por mês e out 3 a porcentagem vendida por setor.
 
 ## DESENVOLVIMENTO POWERBI
